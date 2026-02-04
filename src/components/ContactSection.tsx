@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   {
@@ -85,23 +86,39 @@ const ContactSection = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) return;
+  e.preventDefault();
+  if (!validateForm()) return;
 
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+  setIsSubmitting(true);
+
+  try {
+    await emailjs.send(
+      'service_axpca6w',
+      'template_k6l5d2h',
+      {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      },
+      'xsO-mWlDz0QJCNner'
+    );
+
     toast({
       title: 'Message sent!',
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
-    
+
     setFormData({ name: '', email: '', message: '' });
+  } catch (error) {
+    toast({
+      title: 'Error',
+      description: 'Failed to send message',
+      variant: 'destructive',
+    });
+  } finally {
     setIsSubmitting(false);
-  };
+  }
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

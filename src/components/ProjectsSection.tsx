@@ -41,24 +41,6 @@ const projects = [
     githubUrl: 'https://github.com/laxsavani',
     image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&h=400&fit=crop',
   },
-  {
-    title: 'Web Scraping Solutions',
-    description:
-      'Advanced web scraping solutions using BeautifulSoup and Requests to automate and optimize data collection processes from various websites.',
-    technologies: ['Python', 'BeautifulSoup', 'Requests', 'Data'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/laxsavani',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-  },
-  {
-    title: 'Responsive Chat Interface',
-    description:
-      'Developed at Skyline Infosys - A fully responsive chat interface with real-time messaging, client-side validation, and optimized performance.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'DOM'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/laxsavani',
-    image: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=600&h=400&fit=crop',
-  },
 ];
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
