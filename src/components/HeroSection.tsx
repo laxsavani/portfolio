@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden pt-24 md:pt-28"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -53,7 +53,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-4 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-4 leading-tight"
             >
               Hi, I'm{' '}
               <span className="text-gradient">Lax Savani</span>
@@ -63,7 +63,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl md:text-2xl lg:text-3xl text-primary-foreground/80 font-medium mb-6"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-primary-foreground/80 font-medium mb-6"
             >
               Backend Developer
             </motion.h2>
@@ -72,9 +72,9 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg text-primary-foreground/60 max-w-xl mx-auto lg:mx-0 mb-8"
+              className="text-base sm:text-lg text-primary-foreground/60 max-w-xl mx-auto lg:mx-0 mb-8"
             >
-              Building robust, scalable backend solutions with Python, Node.js, and modern database technologies. 
+              backend developer passionate about problem-solving and backend logic, Growing skills through hands-on practice and real projects.
               Passionate about clean architecture and efficient systems.
             </motion.p>
 
