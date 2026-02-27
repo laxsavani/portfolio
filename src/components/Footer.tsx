@@ -21,7 +21,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
+    <footer className="bg-background text-foreground py-12">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
@@ -29,7 +29,7 @@ const Footer = () => {
             <h3 className="text-2xl font-serif font-bold mb-4">
               Lax<span className="text-accent">Savani</span>
             </h3>
-            <p className="text-primary-foreground/70 mb-4">
+            <p className="text-foreground/70 mb-4">
               Backend Developer passionate about building robust, scalable solutions with Python, Node.js, and modern databases.
             </p>
             <div className="flex items-center gap-3">
@@ -39,7 +39,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-primary-foreground/10 text-primary-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                  className="p-2 rounded-lg bg-foreground/10 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all duration-300"
                   aria-label={link.label}
                 >
                   <link.icon size={18} />
@@ -60,7 +60,7 @@ const Footer = () => {
                     smooth={true}
                     duration={500}
                     offset={-80}
-                    className="text-primary-foreground/70 hover:text-accent cursor-pointer transition-colors duration-300"
+                    className="text-foreground/70 hover:text-accent cursor-pointer transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -72,7 +72,7 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="text-lg font-semibold mb-4 font-sans">Contact</h4>
-            <ul className="space-y-2 text-primary-foreground/70">
+            <ul className="space-y-2 text-foreground/70">
               <li>laxsavani4259@gmail.com</li>
               <li>+91 9825702369</li>
               <li>Surat, Gujarat, India</li>
@@ -81,9 +81,9 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-primary-foreground/10 pt-8">
+        <div className="border-t border-foreground/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-primary-foreground/60 text-sm flex items-center gap-1">
+            <p className="text-foreground/60 text-sm flex items-center gap-1">
               © {currentYear} Lax Savani. Made with{' '}
               <Heart className="w-4 h-4 text-accent fill-accent" /> All rights reserved.
             </p>
@@ -94,7 +94,7 @@ const Footer = () => {
               spy={true}
               smooth={true}
               duration={500}
-              className="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-foreground/10 text-primary-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+              className="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg bg-foreground/10 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all duration-300"
             >
               <ArrowUp size={16} />
               Back to Top

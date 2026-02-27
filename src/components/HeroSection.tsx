@@ -22,7 +22,8 @@ const HeroSection = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 rounded-full bg-accent/20 blur-3xl"
+          className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 rounded-full bg-accent/20 blur-3xl pointer-events-none"
+          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
         />
         <motion.div
           animate={{
@@ -34,7 +35,8 @@ const HeroSection = () => {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 rounded-full bg-accent/10 blur-3xl"
+          className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 rounded-full bg-accent/10 blur-3xl pointer-events-none"
+          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
         />
       </div>
 
@@ -136,7 +138,7 @@ const HeroSection = () => {
             className="flex-shrink-0"
           >
             <div className="relative">
-              <div className="absolute inset-0 rounded-full accent-gradient blur-2xl opacity-30 animate-pulse-glow" />
+              <div className="absolute inset-0 rounded-full accent-gradient blur-2xl opacity-30 animate-pulse-glow pointer-events-none" style={{ willChange: 'opacity' }} />
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-accent/30 shadow-glow">
                 <img
                   src={profilePhoto}
