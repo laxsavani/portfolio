@@ -15,6 +15,15 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
   },
   {
+    title: 'PixelHunt-Image Search Engine',
+    description:
+      'PixelHunt is a simple and fast image search engine that helps users find high-quality images using keywords. It provides quick results with a clean, responsive interface for easy browsing and downloading images.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'API'],
+    liveUrl: 'https://pixelhunt-explorer.vercel.app/',
+    githubUrl: 'https://github.com/laxsavani',
+    image: 'https://png.pngtree.com/thumb_back/fh260/background/20240329/pngtree-searching-engine-optimizing-seo-on-abstract-business-background-mixed-media-image_15662646.jpg',
+  },
+  {
     title: 'Simple Chat App',
     description:
       'A responsive real-time chat interface with clean UI. Features instant messaging functionality with dynamic content updates using client-side scripting.',
