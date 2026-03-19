@@ -36,10 +36,10 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-card/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+          ? 'glass-card rounded-b-2xl md:top-4 md:left-6 md:right-6 md:rounded-2xl shadow-[0_10px_30px_hsl(var(--accent)/0.2)]'
+          : 'bg-transparent pt-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -103,7 +103,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-card/95 backdrop-blur-md border-t border-border"
+            className="md:hidden glass-card border-t-0 rounded-b-2xl mt-1 overflow-hidden"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
               {navItems.map((item) => (

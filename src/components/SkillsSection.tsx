@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Server, Database, Wrench } from 'lucide-react';
+import Tilt from 'react-parallax-tilt';
 
 const skillCategories = [
   {
@@ -58,12 +59,12 @@ const SkillBar = ({ name, level, delay }: { name: string; level: number; delay: 
         <span className="text-foreground font-medium">{name}</span>
         <span className="text-accent font-semibold">{level}%</span>
       </div>
-      <div className="skill-bar h-2">
+      <div className="skill-bar h-2 bg-muted/30">
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: `${level}%` } : {}}
           transition={{ duration: 1, delay: delay, ease: 'easeOut' }}
-          className="skill-bar-fill h-full"
+          className="skill-bar-fill h-full shadow-[0_0_10px_hsl(var(--accent)/0.5)]"
         />
       </div>
     </div>
@@ -75,7 +76,7 @@ const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="skills" className="py-20 md:py-32 bg-muted/50">
+    <section id="skills" className="py-20 md:py-32 bg-muted/20 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -84,11 +85,11 @@ const SkillsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-bold mb-4">
             My Skills
           </span>
           <h2 className="section-title text-foreground">
-            Technical <span className="text-gradient">Expertise</span>
+            Technical <span className="text-gradient drop-shadow-[0_0_15px_hsl(var(--accent)/0.5)]">Expertise</span>
           </h2>
           <p className="section-subtitle">
             A comprehensive overview of my technical skills and proficiencies
@@ -97,33 +98,34 @@ const SkillsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 * (categoryIndex + 1) }}
-              className="p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg accent-gradient flex items-center justify-center shadow-glow">
-                  <category.icon className="w-5 h-5 text-accent-foreground" />
+            <Tilt key={category.title} tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.02} transitionSpeed={1000} gyroscope={true}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 * (categoryIndex + 1), type: 'spring' }}
+                className="p-6 md:p-8 rounded-2xl glass-card hover:border-accent/50 hover:shadow-[0_0_30px_hsl(var(--accent)/0.2)] transition-all duration-300 h-full"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl icon-box-3d flex items-center justify-center">
+                    <category.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground font-sans">
+                    {category.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground font-sans">
-                  {category.title}
-                </h3>
-              </div>
 
-              <div>
-                {category.skills.map((skill, skillIndex) => (
-                  <SkillBar
-                    key={skill.name}
-                    name={skill.name}
-                    level={skill.level}
-                    delay={0.1 * (categoryIndex + 1) + 0.1 * skillIndex}
-                  />
-                ))}
-              </div>
-            </motion.div>
+                <div>
+                  {category.skills.map((skill, skillIndex) => (
+                    <SkillBar
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level}
+                      delay={0.1 * (categoryIndex + 1) + 0.1 * skillIndex}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            </Tilt>
           ))}
         </div>
       </div>

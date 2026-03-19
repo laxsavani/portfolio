@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, Github, Folder } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Tilt from 'react-parallax-tilt';
 
 const projects = [
   {
@@ -57,71 +58,73 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
-      className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-accent/30 hover:shadow-xl transition-all duration-500"
-    >
-      {/* Project Image */}
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60" />
-        
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-primary/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {project.liveUrl !== '#' && (
+    <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} perspective={1000} scale={1.02} transitionSpeed={1000} gyroscope={true} className="h-full">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 30, rotateX: 10 }}
+        animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.1 * (index + 1), type: 'spring', stiffness: 50 }}
+        className="group relative h-full flex flex-col rounded-2xl overflow-hidden glass-card hover:border-accent/80 hover:shadow-[0_0_30px_hsl(var(--accent)/0.3)] transition-all duration-300"
+      >
+        {/* Project Image */}
+        <div className="relative h-48 sm:h-56 overflow-hidden bg-card/50">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80" />
+          
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-background/50 backdrop-blur-sm flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {project.liveUrl !== '#' && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-accent/90 text-accent-foreground hover:scale-110 hover:shadow-glow transition-all duration-300"
+              >
+                <ExternalLink size={20} />
+              </a>
+            )}
             <a
-              href={project.liveUrl}
+              href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-accent text-accent-foreground hover:scale-110 transition-transform duration-300"
+              className="p-3 rounded-full bg-card/90 text-foreground hover:scale-110 hover:shadow-glow transition-all duration-300 border border-border"
             >
-              <ExternalLink size={20} />
+              <Github size={20} />
             </a>
-          )}
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-card text-foreground hover:scale-110 transition-transform duration-300"
-          >
-            <Github size={20} />
-          </a>
+          </div>
         </div>
-      </div>
 
-      {/* Project Info */}
-      <div className="p-6">
-        <div className="flex items-center gap-2 mb-3">
-          <Folder className="w-5 h-5 text-accent" />
-          <h3 className="text-lg font-semibold text-foreground font-sans">
-            {project.title}
-          </h3>
-        </div>
-        
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-          {project.description}
-        </p>
+        {/* Project Info */}
+        <div className="p-6 flex-grow flex flex-col">
+          <div className="flex items-center gap-2 mb-3">
+            <Folder className="w-5 h-5 text-accent" />
+            <h3 className="text-lg md:text-xl font-bold text-foreground font-sans bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-secondary transition-all duration-300">
+              {project.title}
+            </h3>
+          </div>
+          
+          <p className="text-muted-foreground text-sm mb-6 flex-grow line-clamp-3">
+            {project.description}
+          </p>
 
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent"
-            >
-              {tech}
-            </span>
-          ))}
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 text-xs font-semibold rounded-full badge-3d text-accent group-hover:border-accent/40 transition-all duration-300 transform group-hover:translate-z-4"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Tilt>
   );
 };
 
@@ -130,7 +133,7 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-background">
+    <section id="projects" className="py-20 md:py-32 bg-background/30 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}

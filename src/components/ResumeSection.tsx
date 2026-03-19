@@ -3,15 +3,16 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Download, Briefcase, GraduationCap, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Tilt from 'react-parallax-tilt';
 
 const experience = [
   {
     title: 'Backend Developer',
     company: 'White Orange Software',
     location: 'Surat, Gujarat',
-    period: '01 Jan 2026 - On Goning',
+    period: '01 Jan 2026 - On Going',
     description:
-      'backend developer with a strong foundation in server-side programming, databases, and API development. Passionate about learning, building scalable applications, and contributing to real-world projects.',
+      'Backend developer with a strong foundation in server-side programming, databases, and API development. Passionate about learning, building scalable applications, and contributing to real-world projects.',
   },
   {
     title: 'Python Developer',
@@ -79,37 +80,43 @@ const TimelineItem = ({
       className="relative pl-8 pb-8 last:pb-0"
     >
       {/* Timeline line */}
-      <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-border" />
+      <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent/20" />
       
       {/* Timeline dot */}
-      <div className="absolute left-0 top-0 w-4 h-4 rounded-full accent-gradient -translate-x-1/2 ring-4 ring-background shadow-glow" />
+      <div className="absolute left-0 top-0 w-6 h-6 rounded-full badge-3d -translate-x-1/2 flex items-center justify-center">
+        <div className="w-2 h-2 rounded-full bg-accent animate-pulse-glow shadow-[0_0_10px_hsl(var(--accent)/0.8)]" />
+      </div>
 
       {/* Content */}
-      <div className="p-6 rounded-2xl bg-card border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300">
-        <div className="flex items-center gap-2 mb-2">
-          <Icon className="w-5 h-5 text-accent" />
-          <span className="text-sm text-accent font-medium flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
-            {item.period}
-          </span>
+      <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} scale={1.02} transitionSpeed={1000} gyroscope={true}>
+        <div className="p-6 rounded-2xl glass-card border border-border/50 hover:border-accent/50 hover:shadow-[0_0_20px_hsl(var(--accent)/0.2)] transition-all duration-300 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-colors duration-500"></div>
+          
+          <div className="flex items-center gap-2 mb-3 relative z-10">
+            <Icon className="w-5 h-5 text-accent" />
+            <span className="text-sm text-accent font-bold flex items-center gap-1">
+              <Calendar className="w-4 h-4" />
+              {item.period}
+            </span>
+          </div>
+          
+          <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 font-sans relative z-10">
+            {'title' in item ? item.title : 'degree' in item ? item.degree : ''}
+          </h3>
+          
+          <p className="text-muted-foreground/90 font-medium text-sm mb-1 relative z-10">
+            {'company' in item ? item.company : 'institution' in item ? item.institution : ''}
+          </p>
+          
+          <p className="text-muted-foreground/60 text-xs mb-4 relative z-10">
+            {'location' in item ? item.location : ''}
+          </p>
+          
+          <p className="text-muted-foreground text-sm relative z-10">
+            {item.description}
+          </p>
         </div>
-        
-        <h3 className="text-lg font-semibold text-foreground mb-1 font-sans">
-          {'title' in item ? item.title : 'degree' in item ? item.degree : ''}
-        </h3>
-        
-        <p className="text-muted-foreground text-sm mb-1">
-          {'company' in item ? item.company : 'institution' in item ? item.institution : ''}
-        </p>
-        
-        <p className="text-muted-foreground/70 text-xs mb-3">
-          {'location' in item ? item.location : ''}
-        </p>
-        
-        <p className="text-muted-foreground text-sm">
-          {item.description}
-        </p>
-      </div>
+      </Tilt>
     </motion.div>
   );
 };
@@ -119,7 +126,7 @@ const ResumeSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="resume" className="py-20 md:py-32 bg-muted/50">
+    <section id="resume" className="py-20 md:py-32 bg-muted/20 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}

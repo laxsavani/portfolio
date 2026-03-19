@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
+import Tilt from 'react-parallax-tilt';
 
 const contactInfo = [
   {
@@ -129,7 +130,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-background">
+    <section id="contact" className="py-20 md:py-32 bg-background/30 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -138,11 +139,11 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-bold mb-4 shadow-[0_0_10px_hsl(var(--accent)/0.2)]">
             Get In Touch
           </span>
           <h2 className="section-title text-foreground">
-            Let's <span className="text-gradient">Connect</span>
+            Let's <span className="text-gradient drop-shadow-[0_0_15px_hsl(var(--accent)/0.5)]">Connect</span>
           </h2>
           <p className="section-subtitle">
             Have a project in mind? Let's discuss how we can work together.
@@ -165,19 +166,20 @@ const ContactSection = () => {
 
             <div className="space-y-4 mb-8">
               {contactInfo.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-accent/30 hover:shadow-md transition-all duration-300 group"
-                >
-                  <div className="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform duration-300">
-                    <item.icon className="w-5 h-5 text-accent-foreground" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">{item.label}</p>
-                    <p className="text-foreground font-medium">{item.value}</p>
-                  </div>
-                </a>
+                <Tilt key={item.label} tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} scale={1.02} transitionSpeed={1000}>
+                  <a
+                    href={item.href}
+                    className="flex items-center gap-4 p-5 rounded-2xl glass-card border border-border/50 hover:border-accent/50 hover:shadow-[0_0_20px_hsl(var(--accent)/0.2)] transition-all duration-300 group"
+                  >
+                    <div className="w-14 h-14 rounded-xl icon-box-3d flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <item.icon className="w-6 h-6 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">{item.label}</p>
+                      <p className="text-foreground font-bold">{item.value}</p>
+                    </div>
+                  </a>
+                </Tilt>
               ))}
             </div>
 
@@ -193,7 +195,7 @@ const ContactSection = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-card border border-border text-muted-foreground hover:border-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                    className="p-3 rounded-xl icon-box-3d text-muted-foreground hover:text-accent-foreground transition-all duration-300 transform hover:-translate-y-1 hover:scale-110"
                     aria-label={link.label}
                   >
                     <link.icon size={20} />

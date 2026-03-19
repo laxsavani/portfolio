@@ -1,62 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    /* Main background - deep slate (Dark mode default) */
-    --background: 222 47% 11%; /* #0F172A */
-    --foreground: 210 40% 98%; /* #F1F5F9 */
+    /* Main background - Midnight Cosmic Dark */
+    --background: 230 40% 4%; /* #06070e */
+    --foreground: 210 20% 98%;
 
-    /* Cards - elevated slate */
-    --card: 222 36% 18%;       /* ~ #1E293B */
-    --card-foreground: 210 40% 98%;
+    /* Cards - elevated glass base */
+    --card: 230 35% 8%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 222 36% 18%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 230 35% 8%;
+    --popover-foreground: 210 20% 98%;
 
-    /* Primary - Indigo */
-    --primary: 243 75% 59%;            /* #4F46E5 */
-    --primary-foreground: 210 40% 98%; /* light text */
+    /* Primary - Electric Indigo */
+    --primary: 260 100% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Cyan */
-    --secondary: 189 94% 43%;          /* #06B6D4 */
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary - Neon Pink */
+    --secondary: 330 100% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Muted - slate for surfaces */
-    --muted: 220 20% 20%;
-    --muted-foreground: 215 20% 65%;
+    /* Muted - Surfaces */
+    --muted: 230 25% 15%;
+    --muted-foreground: 230 15% 65%;
 
-    /* Accent - Indigo → Cyan */
-    --accent: 243 75% 59%;             /* indigo */
-    --accent-foreground: 210 40% 98%;
+    /* Accents for Holographic Gradients (Indigo -> Pink -> Coral) */
+    --accent: 260 100% 65%;       /* Electric Indigo */
+    --accent-foreground: 0 0% 100%;
 
     /* Accent gradient endpoints */
-    --accent-light: 189 94% 43%;       /* cyan */
-    --accent-dark: 243 75% 48%;
+    --accent-light: 330 100% 60%; /* Neon Pink */
+    --accent-dark: 15 100% 60%;   /* Sunset Coral */
 
     /* Hero gradient colors */
-    --hero-start: 222 47% 10%; /* close to #0F172A */
-    --hero-mid: 222 36% 18%;  /* #1E293B */
-    --hero-end: 225 30% 22%;  /* slightly lighter slate */
+    --hero-start: 230 40% 4%;
+    --hero-mid: 230 35% 8%;
+    --hero-end: 230 30% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 15% 28%;
-    --input: 222 15% 28%;
-    --ring: 243 75% 59%;
+    --border: 230 25% 18%;
+    --input: 230 25% 18%;
+    --ring: 260 100% 65%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     /* Custom shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.15);
-    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.25), 0 2px 4px -2px hsl(222 47% 11% / 0.2);
-    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.3), 0 4px 6px -4px hsl(222 47% 11% / 0.25);
-    --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.35), 0 8px 10px -6px hsl(222 47% 11% / 0.3);
-    --shadow-glow: 0 0 40px hsl(243 75% 59% / 0.35);
+    --shadow-sm: 0 1px 2px 0 hsl(240 10% 4% / 0.15);
+    --shadow-md: 0 4px 6px -1px hsl(240 10% 4% / 0.25), 0 2px 4px -2px hsl(240 10% 4% / 0.2);
+    --shadow-lg: 0 10px 15px -3px hsl(240 10% 4% / 0.3), 0 4px 6px -4px hsl(240 10% 4% / 0.25);
+    --shadow-xl: 0 20px 25px -5px hsl(240 10% 4% / 0.35), 0 8px 10px -6px hsl(240 10% 4% / 0.3);
+    --shadow-glow: 0 0 50px hsl(280 100% 64% / 0.4);
 
     --sidebar-background: 222 36% 18%;
     --sidebar-foreground: 210 40% 98%;
@@ -160,18 +160,77 @@
     background-clip: text;
   }
 
-  /* Glass effect for cards */
+  /* 3D Glass effect for cards */
   .glass-card {
-    background: hsl(var(--card) / 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid hsl(var(--border) / 0.5);
+    background: linear-gradient(145deg, hsl(var(--card) / 0.5), hsl(var(--card) / 0.05));
+    backdrop-filter: blur(24px) saturate(160%);
+    border-top: 1px solid hsl(0 0% 100% / 0.15);
+    border-left: 1px solid hsl(0 0% 100% / 0.1);
+    border-bottom: 2px solid hsl(0 0% 0% / 0.5);
+    border-right: 1px solid hsl(0 0% 0% / 0.3);
+    box-shadow: 
+      inset 0 1px 1px hsl(0 0% 100% / 0.15),
+      0 30px 50px -15px hsl(0 0% 0% / 0.9),
+      0 0 20px hsl(var(--accent) / 0.05);
+    transform-style: preserve-3d;
   }
+
+  .glass-card > * {
+    transform: translateZ(30px);
+  }
+
+  /* 3D Button shape */
+  .btn-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.15s ease;
+    border-bottom: 4px solid hsl(var(--accent-dark));
+    box-shadow: 0 10px 20px -5px hsl(var(--accent)/0.4);
+    text-shadow: 0 2px 4px hsl(0 0% 0% / 0.5);
+  }
+  .btn-3d:active {
+    border-bottom-width: 0px;
+    transform: translateY(4px) translateZ(0);
+    box-shadow: 0 2px 5px hsl(var(--accent)/0.5);
+  }
+
+  /* 3D Icon Box */
+  .icon-box-3d {
+    background: linear-gradient(135deg, hsl(var(--card)/0.6), hsl(var(--card)/0.05));
+    backdrop-filter: blur(16px);
+    border-top: 1px solid hsl(0 0% 100% / 0.2);
+    border-left: 1px solid hsl(0 0% 100% / 0.15);
+    border-bottom: 2px solid hsl(0 0% 0% / 0.7);
+    border-right: 2px solid hsl(0 0% 0% / 0.5);
+    box-shadow: 
+      inset 0 1px 2px hsl(0 0% 100% / 0.2),
+      0 8px 16px -4px hsl(0 0% 0% / 0.8),
+      0 0 20px hsl(var(--accent) / 0.1);
+    transform-style: preserve-3d;
+  }
+
+  /* 3D Badge */
+  .badge-3d {
+    background: linear-gradient(145deg, hsl(var(--accent)/0.3), hsl(var(--accent-light)/0.05));
+    backdrop-filter: blur(8px);
+    border-top: 1px solid hsl(0 0% 100% / 0.3);
+    border-left: 1px solid hsl(0 0% 100% / 0.2);
+    border-bottom: 2px solid hsl(0 0% 0% / 0.6);
+    border-right: 1px solid hsl(0 0% 0% / 0.4);
+    box-shadow: inset 0 1px 2px hsl(0 0% 100%/0.2), 0 5px 10px -2px hsl(0 0% 0%/0.7);
+    text-shadow: 0 1px 3px hsl(0 0% 0% / 0.9);
+    transform-style: preserve-3d;
+  }
+
+
 
   /* Skill progress bar */
   .skill-bar {
-    background: hsl(var(--muted));
+    background: hsl(var(--muted) / 0.6);
     border-radius: 9999px;
     overflow: hidden;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.8), 0 1px 1px hsl(0 0% 100% / 0.1);
+    transform-style: preserve-3d;
   }
 
   .skill-bar-fill {
@@ -180,6 +239,15 @@
       hsl(var(--accent)) 0%,
       hsl(var(--accent-light)) 100%
     );
+    border-radius: 9999px;
+    position: relative;
+    box-shadow: inset 0 2px 5px hsl(0 0% 100% / 0.4), inset 0 -2px 5px hsl(0 0% 0% / 0.4);
+  }
+  .skill-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, hsl(0 0% 100%/0.3) 0%, transparent 40%, hsl(0 0% 0%/0.1) 100%);
     border-radius: 9999px;
   }
 

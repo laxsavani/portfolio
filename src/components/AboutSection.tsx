@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { GraduationCap, Target, User, Briefcase } from 'lucide-react';
+import Tilt from 'react-parallax-tilt';
 
 const aboutCards = [
   {
@@ -35,7 +36,7 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-background">
+    <section id="about" className="py-20 md:py-32 bg-background/30 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -44,11 +45,11 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-bold mb-4 shadow-[0_0_10px_hsl(var(--accent)/0.2)]">
             About Me
           </span>
           <h2 className="section-title text-foreground">
-            Get to Know <span className="text-gradient">Me</span>
+            Get to Know <span className="text-gradient drop-shadow-[0_0_15px_hsl(var(--accent)/0.5)]">Me</span>
           </h2>
           <p className="section-subtitle">
             I'm a developer who loves creating impactful backend solutions
@@ -57,27 +58,28 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {aboutCards.map((card, index) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
-              className="group p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl accent-gradient flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform duration-300">
-                  <card.icon className="w-6 h-6 text-accent-foreground" />
+            <Tilt key={card.title} tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.02} transitionSpeed={1000} gyroscope={true} className="h-full">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 * (index + 1), type: 'spring' }}
+                className="group p-6 md:p-8 rounded-2xl glass-card border border-border/50 hover:border-accent/50 hover:shadow-[0_0_30px_hsl(var(--accent)/0.2)] transition-all duration-300 h-full flex flex-col"
+              >
+                <div className="flex items-start gap-4 h-full">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-xl icon-box-3d flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <card.icon className="w-7 h-7 text-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-foreground mb-3 font-sans group-hover:text-accent transition-colors duration-300">
+                      {card.title}
+                    </h3>
+                    <p className="text-muted-foreground/90 leading-relaxed text-sm">
+                      {card.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-foreground mb-2 font-sans">
-                    {card.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Tilt>
           ))}
         </div>
       </div>

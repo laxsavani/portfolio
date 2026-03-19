@@ -3,41 +3,16 @@ import { Link } from 'react-scroll';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profilePhoto from '@/assets/profile-photo.jpg';
+import Tilt from 'react-parallax-tilt';
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden pt-24 md:pt-28"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-          className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 rounded-full bg-accent/20 blur-3xl pointer-events-none"
-          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.1, 0.15, 0.1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-          className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 rounded-full bg-accent/10 blur-3xl pointer-events-none"
-          style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
-        />
+      {/* 3D Canvas acts as background now */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -131,23 +106,26 @@ const HeroSection = () => {
           </div>
 
           {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-shrink-0"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full accent-gradient blur-2xl opacity-30 animate-pulse-glow pointer-events-none" style={{ willChange: 'opacity' }} />
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-accent/30 shadow-glow">
-                <img
-                  src={profilePhoto}
-                  alt="Lax Savani - Backend Developer"
-                  className="w-full h-full object-cover"
-                />
+          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.05} transitionSpeed={2000} gyroscope={true}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex-shrink-0"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full accent-gradient blur-3xl opacity-50 animate-pulse-glow pointer-events-none" style={{ willChange: 'opacity' }} />
+                <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-[6px] border-accent/40 shadow-[0_0_50px_hsl(var(--accent)/0.6)] backdrop-blur-md">
+                  <img
+                    src={profilePhoto}
+                    alt="Lax Savani - Backend Developer"
+                    className="w-full h-full object-cover mix-blend-overlay"
+                    style={{ mixBlendMode: 'normal' }}
+                  />
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </Tilt>
         </div>
       </div>
 
