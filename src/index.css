@@ -160,19 +160,20 @@
     background-clip: text;
   }
 
-  /* 3D Glass effect for cards */
+  /* 3D Glass effect for cards - Optimized */
   .glass-card {
-    background: linear-gradient(145deg, hsl(var(--card) / 0.5), hsl(var(--card) / 0.05));
-    backdrop-filter: blur(24px) saturate(160%);
-    border-top: 1px solid hsl(0 0% 100% / 0.15);
-    border-left: 1px solid hsl(0 0% 100% / 0.1);
-    border-bottom: 2px solid hsl(0 0% 0% / 0.5);
-    border-right: 1px solid hsl(0 0% 0% / 0.3);
+    background: linear-gradient(145deg, hsl(var(--card) / 0.4), hsl(var(--card) / 0.02));
+    backdrop-filter: blur(12px); /* Reduced from 24px for performance */
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid hsl(0 0% 100% / 0.1);
+    border-left: 1px solid hsl(0 0% 100% / 0.05);
+    border-bottom: 2px solid hsl(0 0% 0% / 0.4);
+    border-right: 1px solid hsl(0 0% 0% / 0.2);
     box-shadow: 
-      inset 0 1px 1px hsl(0 0% 100% / 0.15),
-      0 30px 50px -15px hsl(0 0% 0% / 0.9),
-      0 0 20px hsl(var(--accent) / 0.05);
+      inset 0 1px 0 hsl(0 0% 100% / 0.1),
+      0 20px 40px -10px hsl(0 0% 0% / 0.7);
     transform-style: preserve-3d;
+    will-change: transform;
   }
 
   .glass-card > * {
@@ -194,31 +195,27 @@
     box-shadow: 0 2px 5px hsl(var(--accent)/0.5);
   }
 
-  /* 3D Icon Box */
+  /* 3D Icon Box - Optimized */
   .icon-box-3d {
-    background: linear-gradient(135deg, hsl(var(--card)/0.6), hsl(var(--card)/0.05));
-    backdrop-filter: blur(16px);
-    border-top: 1px solid hsl(0 0% 100% / 0.2);
-    border-left: 1px solid hsl(0 0% 100% / 0.15);
-    border-bottom: 2px solid hsl(0 0% 0% / 0.7);
-    border-right: 2px solid hsl(0 0% 0% / 0.5);
+    background: linear-gradient(135deg, hsl(var(--card)/0.8), hsl(var(--card)/0.2));
+    /* Removed backdrop-filter for performance on small elements */
+    border-top: 1px solid hsl(0 0% 100% / 0.15);
+    border-left: 1px solid hsl(0 0% 100% / 0.1);
+    border-bottom: 2px solid hsl(0 0% 0% / 0.6);
+    border-right: 1px solid hsl(0 0% 0% / 0.4);
     box-shadow: 
-      inset 0 1px 2px hsl(0 0% 100% / 0.2),
-      0 8px 16px -4px hsl(0 0% 0% / 0.8),
-      0 0 20px hsl(var(--accent) / 0.1);
+      inset 0 1px 2px hsl(0 0% 100% / 0.1),
+      0 4px 8px -2px hsl(0 0% 0% / 0.6);
     transform-style: preserve-3d;
   }
 
-  /* 3D Badge */
+  /* 3D Badge - Optimized */
   .badge-3d {
-    background: linear-gradient(145deg, hsl(var(--accent)/0.3), hsl(var(--accent-light)/0.05));
-    backdrop-filter: blur(8px);
-    border-top: 1px solid hsl(0 0% 100% / 0.3);
-    border-left: 1px solid hsl(0 0% 100% / 0.2);
-    border-bottom: 2px solid hsl(0 0% 0% / 0.6);
-    border-right: 1px solid hsl(0 0% 0% / 0.4);
-    box-shadow: inset 0 1px 2px hsl(0 0% 100%/0.2), 0 5px 10px -2px hsl(0 0% 0%/0.7);
-    text-shadow: 0 1px 3px hsl(0 0% 0% / 0.9);
+    background: linear-gradient(145deg, hsl(var(--accent)/0.4), hsl(var(--accent-light)/0.1));
+    border-top: 1px solid hsl(0 0% 100% / 0.2);
+    border-bottom: 2px solid hsl(0 0% 0% / 0.5);
+    box-shadow: 0 4px 6px -1px hsl(0 0% 0%/0.5);
+    text-shadow: 0 1px 2px hsl(0 0% 0% / 0.8);
     transform-style: preserve-3d;
   }
 

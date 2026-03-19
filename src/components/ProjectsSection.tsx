@@ -133,7 +133,7 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-background/30 backdrop-blur-sm">
+    <section id="projects" className="py-20 md:py-32 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
