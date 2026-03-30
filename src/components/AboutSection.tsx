@@ -1,8 +1,6 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { memo, useRef, useCallback } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { GraduationCap, Target, User, Briefcase } from 'lucide-react';
-import Tilt from 'react-parallax-tilt';
 
 const aboutCards = [
   {
@@ -31,7 +29,48 @@ const aboutCards = [
   },
 ];
 
-const AboutSection = () => {
+// Variants defined outside — zero re-allocation per render
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, delay, ease: 'easeOut' },
+  }),
+};
+
+// Lightweight CSS-based tilt (no library, no mouse-tracking library weight)
+const TiltCard = memo(({ children, className = '' }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -8;
+    el.style.transform = `perspective(800px) rotateX(${y}deg) rotateY(${x}deg) scale(1.02)`;
+  }, []);
+
+  const onLeave = useCallback(() => {
+    if (ref.current) ref.current.style.transform = '';
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      className={className}
+      style={{ transition: 'transform 0.18s ease-out', willChange: 'transform' }}
+    >
+      {children}
+    </div>
+  );
+});
+TiltCard.displayName = 'TiltCard';
+
+const AboutSection = memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -42,14 +81,14 @@ const AboutSection = () => {
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55, ease: 'easeOut' }}
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-bold mb-4 shadow-[0_0_10px_hsl(var(--accent)/0.2)]">
             About Me
           </span>
           <h2 className="section-title text-foreground">
-            Get to Know <span className="text-gradient drop-shadow-[0_0_15px_hsl(var(--accent)/0.5)]">Me</span>
+            Get to Know <span className="text-gradient drop-shadow-[0_0_12px_hsl(var(--accent)/0.4)]">Me</span>
           </h2>
           <p className="section-subtitle">
             I'm a developer who loves creating impactful backend solutions
@@ -58,19 +97,20 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {aboutCards.map((card, index) => (
-            <Tilt key={card.title} tiltMaxAngleX={10} tiltMaxAngleY={10} perspective={1000} scale={1.02} transitionSpeed={1000} gyroscope={true} className="h-full">
+            <TiltCard key={card.title} className="h-full">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 * (index + 1), type: 'spring' }}
-                className="group p-6 md:p-8 rounded-2xl glass-card border border-border/50 hover:border-accent/50 hover:shadow-[0_0_30px_hsl(var(--accent)/0.2)] transition-all duration-300 h-full flex flex-col"
+                variants={cardVariants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+                custom={0.1 * (index + 1)}
+                className="group p-6 md:p-8 rounded-2xl glass-card border border-border/50 hover:border-accent/50 hover:shadow-[0_0_25px_hsl(var(--accent)/0.15)] transition-[border-color,box-shadow] duration-300 h-full flex flex-col"
               >
                 <div className="flex items-start gap-4 h-full">
-                  <div className="flex-shrink-0 w-14 h-14 rounded-xl icon-box-3d flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-xl icon-box-3d flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                     <card.icon className="w-7 h-7 text-accent" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-foreground mb-3 font-sans group-hover:text-accent transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-foreground mb-3 font-sans group-hover:text-accent transition-colors duration-200">
                       {card.title}
                     </h3>
                     <p className="text-muted-foreground/90 leading-relaxed text-sm">
@@ -79,12 +119,14 @@ const AboutSection = () => {
                   </div>
                 </div>
               </motion.div>
-            </Tilt>
+            </TiltCard>
           ))}
         </div>
       </div>
     </section>
   );
-};
+});
+
+AboutSection.displayName = 'AboutSection';
 
 export default AboutSection;
