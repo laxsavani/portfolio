@@ -18,8 +18,8 @@ const skillCategories = [
     icon: Server,
     title: 'Backend & Frameworks',
     skills: [
-      { name: 'Node.js / Express.js', level: 88 },
-      { name: 'Flask', level: 60 },
+      { name: 'Node.js', level: 88 },
+      { name: 'Express.js', level: 70 },
       { name: 'REST APIs', level: 90 },
       { name: 'Web Scraping', level: 82 },
       { name: 'Automation Scripts', level: 85 },
