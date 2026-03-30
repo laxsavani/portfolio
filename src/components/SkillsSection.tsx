@@ -27,11 +27,12 @@ const skillCategories = [
   },
   {
     icon: Database,
-    title: 'Databases',
+    title: 'Databases & ORM',
     skills: [
       { name: 'MongoDB', level: 90 },
       { name: 'MySQL', level: 85 },
       { name: 'JSON', level: 90 },
+      { name: 'Sequelize', level: 80 }
     ],
   },
   {
@@ -39,7 +40,7 @@ const skillCategories = [
     title: 'Tools & Others',
     skills: [
       { name: 'Git / GitHub', level: 90 },
-      { name: 'VS Code / Cursor / Antigravity', level: 95 },
+      { name: 'VS Code / Cursor / Antigravity / Trae', level: 95 },
       { name: 'Render', level: 85 },
       { name: 'Networking', level: 60 },
       { name: 'Virtual Box', level: 60 },
