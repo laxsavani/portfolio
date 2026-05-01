@@ -40,7 +40,7 @@ const Contact = () => {
       // Send directly to email using FormSubmit AJAX
       const response = await fetch(`https://formsubmit.co/ajax/${resumeData.contact.email}`, {
         method: "POST",
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
@@ -85,12 +85,12 @@ const Contact = () => {
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        
+
         {/* Section Heading Pattern */}
-        <motion.div 
-          variants={fadeUp} 
-          initial="hidden" 
-          whileInView="visible" 
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           className="mb-20 flex flex-col items-center md:items-start"
         >
@@ -103,7 +103,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Contact Form */}
           <motion.div
             variants={slideLeft}
@@ -113,14 +113,14 @@ const Contact = () => {
             className="bg-surface/80 backdrop-blur-xl border border-border rounded-[2rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)]"
           >
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-              
+
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-bold text-text ml-1">Your Name</label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  value={formData.name} 
-                  onChange={handleChange} 
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="John Doe"
                   className={`w-full bg-bg/50 border ${errors.name ? 'border-red-500' : 'border-border'} rounded-xl px-5 py-4 text-text font-sans focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all placeholder-muted/50`}
                 />
@@ -129,11 +129,11 @@ const Contact = () => {
 
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-bold text-text ml-1">Your Email</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  value={formData.email} 
-                  onChange={handleChange} 
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="john@example.com"
                   className={`w-full bg-bg/50 border ${errors.email ? 'border-red-500' : 'border-border'} rounded-xl px-5 py-4 text-text font-sans focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all placeholder-muted/50`}
                 />
@@ -142,11 +142,11 @@ const Contact = () => {
 
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-bold text-text ml-1">Subject</label>
-                <input 
-                  type="text" 
-                  name="subject" 
-                  value={formData.subject} 
-                  onChange={handleChange} 
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   placeholder="Project Inquiry"
                   className={`w-full bg-bg/50 border ${errors.subject ? 'border-red-500' : 'border-border'} rounded-xl px-5 py-4 text-text font-sans focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all placeholder-muted/50`}
                 />
@@ -155,10 +155,10 @@ const Contact = () => {
 
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-bold text-text ml-1">Message</label>
-                <textarea 
-                  name="message" 
-                  value={formData.message} 
-                  onChange={handleChange} 
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows="5"
                   placeholder="Hello, I'd like to talk about..."
                   className={`w-full bg-bg/50 border ${errors.message ? 'border-red-500' : 'border-border'} rounded-xl px-5 py-4 text-text font-sans focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all placeholder-muted/50 resize-none`}
@@ -166,7 +166,7 @@ const Contact = () => {
                 {errors.message && <span className="text-red-500 text-xs ml-1">{errors.message}</span>}
               </div>
 
-              <motion.button 
+              <motion.button
                 whileHover={{ y: -2, boxShadow: '0 10px 30px -10px var(--accent)' }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
@@ -182,7 +182,7 @@ const Contact = () => {
 
               <AnimatePresence>
                 {isSuccess && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
@@ -199,7 +199,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="flex flex-col gap-6 pt-4 lg:pt-0">
             {contactLinks.map((info, i) => (
-              <motion.a 
+              <motion.a
                 key={i}
                 href={info.link}
                 target="_blank"
