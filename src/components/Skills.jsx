@@ -25,6 +25,8 @@ const getIconUrl = (skill) => {
     'c++': 'cpp',
     'java': 'java',
     'javascript': 'js',
+    'html': 'html',
+    'css': 'css',
     'php': 'php',
     'python': 'python',
     'node.js': 'nodejs',
@@ -38,7 +40,10 @@ const getIconUrl = (skill) => {
     'git': 'git',
     'github': 'github',
     'vercel': 'vercel',
+    'aws (basic)': 'aws',
+    'linux (basic)': 'linux',
     'visual studio code': 'vscode',
+    'postman': 'postman',
     'eclipse': 'eclipse'
   };
 
@@ -52,7 +57,15 @@ const getIconUrl = (skill) => {
     'render': 'https://www.google.com/s2/favicons?domain=render.com&sz=128',
     'cursor': 'https://www.google.com/s2/favicons?domain=cursor.com&sz=128',
     'trae': 'https://www.google.com/s2/favicons?domain=trae.ai&sz=128',
-    'antigravity': 'https://www.google.com/s2/favicons?domain=deepmind.google&sz=128'
+    'antigravity': 'https://www.google.com/s2/favicons?domain=deepmind.google&sz=128',
+    'mongoose': 'https://www.google.com/s2/favicons?domain=mongoosejs.com&sz=128',
+    'cloudinary': 'https://www.google.com/s2/favicons?domain=cloudinary.com&sz=128',
+    'sequelize': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg',
+    'swagger': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg',
+    'canva': 'https://img.icons8.com/color/144/canva.png',
+    'word': 'https://img.icons8.com/color/144/microsoft-word-2019--v2.png',
+    'powerpoint': 'https://img.icons8.com/color/144/microsoft-powerpoint-2019--v1.png',
+    'excel': 'https://img.icons8.com/color/144/microsoft-excel-2019--v1.png'
   };
 
   if (customLogos[lower]) {

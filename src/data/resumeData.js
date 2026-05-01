@@ -10,11 +10,14 @@ export const resumeData = {
     location: "Surat, Gujarat"
   },
   skills: {
-    languages: ["C", "C++", "Java", "JavaScript", "PHP", "Python"],
+    languages: ["C", "C++", "Java", "JavaScript", "HTML", "CSS", "PHP", "Python"],
     frameworks: ["Node.js", "Express.js", "Bootstrap 5", "WordPress", "Flask"],
     databases: ["MySQL", "MongoDB", "SQLite"],
-    devops: ["Git", "GitHub", "Render", "Vercel"],
-    tools: ["Visual Studio Code", "Antigravity", "Cursor", "Trae", "Eclipse"]
+    devops: ["Git", "GitHub", "Render", "Vercel", "AWS (Basic)", "Linux (Basic)"],
+    tools: ["Visual Studio Code", "Postman", "Swagger", "Cloudinary", "Antigravity", "Cursor", "Trae", "Eclipse"],
+    ORM: ["Sequelize"],
+    ODM: ["Mongoose"],
+    other: ['Canva', "Word", "PowerPoint", "Excel"]
   },
   workExperience: [
     {

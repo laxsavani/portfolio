@@ -9,7 +9,7 @@ import { fadeUp, slideLeft, slideRight } from '../animations/variants';
 const About = () => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
-  const yearsOfExperience = 3;
+  const yearsOfExperience = 4;
   const totalProjects = resumeData.projects.length;
   const totalSkills = Object.values(resumeData.skills).flat().length;
 
@@ -17,7 +17,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-32 px-6 md:px-12 bg-surface relative overflow-hidden">
-      
+
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent2/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
@@ -49,11 +49,11 @@ const About = () => {
           >
             {/* Abstract Background Blob */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-gradient-to-tr from-accent/20 to-accent2/20 rounded-full blur-3xl animate-[pulse_6s_infinite_alternate]"></div>
-            
+
             {/* Main Glass Card */}
             <Tilt options={{ max: 10, scale: 1.02, speed: 400 }}>
               <div className="relative z-10 w-[280px] sm:w-[350px] bg-surface/80 backdrop-blur-2xl border border-border shadow-[0_20px_50px_rgba(0,0,0,0.05)] rounded-[2rem] p-8 flex flex-col gap-8 transition-shadow hover:shadow-[0_20px_50px_rgba(0,212,255,0.1)]">
-                
+
                 <div className="flex items-center gap-5">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center shadow-lg text-white font-syne text-3xl font-bold">
                     {initials}
@@ -67,7 +67,7 @@ const About = () => {
                 <p className="text-muted text-sm font-sans leading-relaxed italic">
                   "Building scalable server-side systems and highly optimized databases that power modern web applications."
                 </p>
-                
+
                 {/* Tech pills */}
                 <div className="flex flex-wrap gap-2">
                   {['Node.js', 'Express', 'MySQL', 'MongoDB'].map((tech, idx) => (
@@ -80,7 +80,7 @@ const About = () => {
             </Tilt>
 
             {/* Floating badges around the card */}
-            <motion.div 
+            <motion.div
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -top-6 -right-4 sm:-right-8 lg:-right-12 z-20"
@@ -94,7 +94,7 @@ const About = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               animate={{ y: [10, -10, 10] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -bottom-6 -left-4 sm:-left-8 lg:-left-12 z-20"
@@ -117,7 +117,7 @@ const About = () => {
             <h3 className="font-syne text-3xl font-bold text-text mb-6">
               Engineering with <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2">Precision</span>
             </h3>
-            
+
             <div className="text-muted text-[1.05rem] font-sans leading-relaxed space-y-6 mb-12">
               <p>
                 I'm a backend-focused developer who enjoys architecting APIs and optimizing databases.
@@ -144,7 +144,7 @@ const About = () => {
                 >
                   {/* Hover gradient background effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-accent2/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+
                   <div className="relative z-10 font-syne text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-accent to-accent2 mb-3">
                     {inView ? <CountUp end={stat.value} duration={2.5} /> : '0'}
                     <span className="text-accent2 text-3xl align-top ml-1">+</span>

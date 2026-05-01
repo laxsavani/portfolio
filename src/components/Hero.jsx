@@ -24,9 +24,9 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-20 px-6 md:px-12 bg-bg overflow-hidden">
-      
+
       {/* Animated Background Elements */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-50"
         style={{
           backgroundImage: 'radial-gradient(var(--border) 1px, transparent 1px)',
@@ -36,14 +36,14 @@ const Hero = () => {
         }}
       />
 
-      <div 
+      <div
         className="absolute top-[10%] left-[10%] w-[300px] h-[300px] rounded-full blur-[80px] opacity-20 animate-[drift_12s_infinite_alternate]"
         style={{
           background: 'radial-gradient(circle, var(--accent), transparent 70%)',
           transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`
         }}
       />
-      <div 
+      <div
         className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] rounded-full blur-[80px] opacity-20 animate-[drift_15s_infinite_alternate-reverse]"
         style={{
           background: 'radial-gradient(circle, var(--accent2), transparent 70%)',
@@ -52,9 +52,9 @@ const Hero = () => {
       />
 
       <div className="container mx-auto max-w-7xl relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
+
         {/* Left Side: Content */}
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -93,7 +93,7 @@ const Hero = () => {
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-10">
             <Link to="projects" smooth={true} duration={500}>
-              <motion.button 
+              <motion.button
                 whileHover={{ y: -3, boxShadow: '0 10px 30px -10px var(--accent)' }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto bg-accent text-white font-semibold px-8 py-3 rounded-lg tracking-wide transition-all shadow-md"
@@ -101,8 +101,8 @@ const Hero = () => {
                 View My Work
               </motion.button>
             </Link>
-            <motion.a 
-              href="/Resume.pdf" 
+            <motion.a
+              href="/Resume.pdf"
               download
               whileHover={{ y: -3, boxShadow: '0 10px 30px -10px var(--accent)' }}
               whileTap={{ scale: 0.95 }}
@@ -118,10 +118,10 @@ const Hero = () => {
               { icon: <FiLinkedin />, link: resumeData.contact.linkedin },
               { icon: <FiMail />, link: `mailto:${resumeData.contact.email}` }
             ].map((item, i) => (
-              <a 
-                key={i} 
-                href={item.link} 
-                target="_blank" 
+              <a
+                key={i}
+                href={item.link}
+                target="_blank"
                 rel="noreferrer"
                 className="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center text-muted text-xl hover:text-accent hover:border-accent transition-all hover:shadow-md"
               >
@@ -132,7 +132,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Right Side: Photo */}
-        <motion.div 
+        <motion.div
           variants={scaleIn}
           initial="hidden"
           whileInView="visible"
@@ -142,12 +142,12 @@ const Hero = () => {
           <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px]">
             {/* Decorative background circle */}
             <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-accent2/20 rounded-full blur-2xl animate-pulse"></div>
-            
+
             <div className="relative z-10 w-full h-full rounded-full border-[6px] border-surface shadow-2xl overflow-hidden bg-surface">
               <div className="w-full h-full rounded-full overflow-hidden bg-bg relative">
-                <img 
-                  src="/hero-image.jpeg" 
-                  alt={resumeData.name} 
+                <img
+                  src="/hero-image.jpeg"
+                  alt={resumeData.name}
                   className="w-full h-full object-cover"
                 />
                 {/* Subtle inner shadow overlay */}
@@ -156,16 +156,16 @@ const Hero = () => {
             </div>
 
             {/* Floating badges */}
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute top-10 -left-2 sm:-left-6 md:-left-10 bg-surface px-6 py-4 rounded-2xl border border-border shadow-xl hidden sm:flex flex-col items-center justify-center z-20"
             >
-              <span className="font-syne font-extrabold text-accent text-3xl mb-1">5+</span>
+              <span className="font-syne font-extrabold text-accent text-3xl mb-1">6+</span>
               <span className="text-[0.65rem] text-muted uppercase tracking-widest font-bold">Projects</span>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="absolute bottom-10 -right-2 sm:-right-6 md:-right-10 bg-surface px-6 py-4 rounded-2xl border border-border shadow-xl hidden sm:flex flex-col items-center justify-center z-20"
