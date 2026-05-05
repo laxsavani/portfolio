@@ -84,7 +84,7 @@ export const resumeData = {
       live: ""
     },
     {
-      name: "Flipkart-like API",
+      name: "Flipkart Clone API",
       category: "Backend",
       description: "RESTful e-commerce API developed using Node.js, Express.js, and Sequelize ORM with MySQL. Implemented CRUD operations and user authentication.",
       tags: ["Node.js", "Express.js", "Sequelize", "MySQL"],
@@ -97,7 +97,23 @@ export const resumeData = {
       description: "Full-stack system using Node.js, Express, MongoDB, and JavaScript for registration, attendance tracking, and fee management with secure authentication.",
       tags: ["Node.js", "Express.js", "MongoDB", "JavaScript"],
       github: "https://github.com/laxsavani/IT-Tution-Management",
-      live: ""
+      live: "https://it-tution-management.onrender.com/"
+    },
+    {
+      name: "PixelHunt",
+      category: "Frontend",
+      description: "PixelHunt Explorer is a lightweight image search web app built with HTML, CSS, and JavaScript. It lets users quickly find and browse high-quality images using keywords. The app features a clean, responsive design for a smooth user experience.",
+      tags: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      github: "https://github.com/laxsavani/Image-Search-Engine",
+      live: "https://pixelhunt-explorer.vercel.app/"
+    },
+    {
+      name: "Simple Chat App",
+      category: "Frontend",
+      description: "Responsive chat interface using HTML, CSS, and real-time messaging functionality with JavaScript.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      github: "https://github.com/laxsavani/SimpleChatApp",
+      live: "https://laxchatapp.onrender.com/"
     },
     {
       name: "Flask To-Do App",
@@ -115,13 +131,5 @@ export const resumeData = {
       github: "https://github.com/laxsavani/file_organizer_web",
       live: ""
     },
-    {
-      name: "Simple Chat App",
-      category: "Frontend",
-      description: "Responsive chat interface using HTML, CSS, and real-time messaging functionality with JavaScript.",
-      tags: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/laxsavani/SimpleChatApp",
-      live: ""
-    }
   ]
 };

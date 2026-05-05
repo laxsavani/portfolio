@@ -161,7 +161,7 @@ const Hero = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute top-10 -left-2 sm:-left-6 md:-left-10 bg-surface px-6 py-4 rounded-2xl border border-border shadow-xl hidden sm:flex flex-col items-center justify-center z-20"
             >
-              <span className="font-syne font-extrabold text-accent text-3xl mb-1">6+</span>
+              <span className="font-syne font-extrabold text-accent text-3xl mb-1">7+</span>
               <span className="text-[0.65rem] text-muted uppercase tracking-widest font-bold">Projects</span>
             </motion.div>
 
