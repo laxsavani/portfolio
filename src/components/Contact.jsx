@@ -95,7 +95,7 @@ const Contact = () => {
           className="mb-20 flex flex-col items-center md:items-start"
         >
           <span className="text-[0.75rem] uppercase text-accent tracking-[0.3em] font-sans font-bold bg-accent/10 px-4 py-2 rounded-full mb-4">Connect</span>
-          <h2 className="font-syne text-4xl md:text-6xl font-extrabold text-text mt-2">Let's Build Something</h2>
+          <h2 className="font-syne text-4xl md:text-6xl font-extrabold text-text mt-2 text-center md:text-left">Let's Build Something</h2>
           <div className="w-[80px] h-[4px] bg-gradient-to-r from-accent to-accent2 rounded-full mt-6"></div>
           <p className="text-muted font-sans mt-6 max-w-lg text-center md:text-left text-lg leading-relaxed">
             I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!

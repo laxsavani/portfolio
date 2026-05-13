@@ -39,7 +39,7 @@ const Projects = () => {
           className="mb-16 flex flex-col items-center md:items-start"
         >
           <span className="text-[0.8rem] uppercase text-accent tracking-[0.2em] font-sans font-semibold">Portfolio</span>
-          <h2 className="font-syne text-4xl md:text-5xl font-bold text-text mt-2">Featured Work</h2>
+          <h2 className="font-syne text-4xl md:text-5xl font-bold text-text mt-2 text-center md:text-left">Featured Work</h2>
           <div className="w-[60px] h-[3px] bg-accent rounded-sm mt-4"></div>
         </motion.div>
 

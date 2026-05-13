@@ -131,5 +131,117 @@ export const resumeData = {
       github: "https://github.com/laxsavani/file_organizer_web",
       live: ""
     },
+  ],
+  certifications: [
+    {
+      title: "Front End Development - HTML",
+      issuer: "GreatLearning",
+      date: "July 2023",
+      credentialId: "ABEMODNN",
+      credentialUrl: "https://www.mygreatlearning.com/certificate/ABEMODNN?referrer_code=GLS9QYLMUGIIO",
+      category: "Frontend",
+      icon: "🟢",
+      skills: ["Creating and Styling web forms", "HTML Fundamentals and Document Structure", "Knowledge of Integrating Multimedia Elements", "Semantic HTML for better accessibility and SEO"]
+    },
+    {
+      title: "Data Structure in C",
+      issuer: "GreatLearning",
+      date: "July 2023",
+      credentialId: "SNSKAUQX",
+      credentialUrl: "https://www.mygreatlearning.com/certificate/SNSKAUQX?referrer_code=GLS9QYLMUGIIO",
+      category: "Languages",
+      icon: "🔴",
+      skills: ["Queue", "Heaps", "Stacks", "Hashing", "Linked List", "Binary Search", "Tree Data Structure", "Arrays in C programming", "Binary Tree Data structure"]
+    },
+    {
+      title: "C++ Tutorial",
+      issuer: "GreatLearning",
+      date: "July 2023",
+      credentialId: "ZBYFBAZY",
+      credentialUrl: "https://www.mygreatlearning.com/certificate/ZBYFBAZY?referrer_code=GLS9QYLMUGIIO",
+      category: "Languages",
+      icon: "🔴",
+      skills: ["Arrays", "Strings", "Pointers", "Functions", "Basics of C++", "Control Statements", "Basic OOPs Concept"]
+    },
+    {
+      title: "Front End Development - CSS",
+      issuer: "GreatLearning",
+      date: "July 2023",
+      credentialId: "HFKDQJQN",
+      credentialUrl: "https://www.mygreatlearning.com/certificate/HFKDQJQN?referrer_code=GLS9QYLMUGIIO",
+      category: "Frontend",
+      icon: "🟢",
+      skills: ["CSS", "Box Model", "CSS Syntax", "Inline CSS", "CSS Border", "CSS Editors", "Internal CSS", "External CSS", "CSS Comments", "CSS Selectors", "CSS Background", "Website Styling"]
+    },
+    {
+      title: "Java Programming",
+      issuer: "GreatLearning",
+      date: "July 2023",
+      credentialId: "DJOJNWBU",
+      credentialUrl: "https://www.mygreatlearning.com/certificate/DJOJNWBU?referrer_code=GLS9QYLMUGIIO",
+      category: "Languages",
+      icon: "🔴",
+      skills: ["Echelon Form", "Gauss-Jordan", "Rank of a matrix", "Gauss-Elimination", "Gauss-Seidel methods", "Rayleigh’s power method", "Solving Linear Equations", "Eigenvalues and Eigenvectors", "And Diagonalization Techniques"]
+    },
+    {
+      title: "Android Application Development",
+      issuer: "GreatLearning",
+      date: "July 2023",
+      credentialId: "JMXHURSU",
+      credentialUrl: "https://www.mygreatlearning.com/certificate/JMXHURSU?referrer_code=GLS9QYLMUGIIO",
+      category: "Development",
+      icon: "🟠",
+      skills: ["Android Architecture", "User Interface Design", "Debugging and Testing", "Activities and Intents"]
+    },
+    {
+      title: "JavaScript Projects",
+      issuer: "GreatLearning",
+      date: "July 2023",
+      credentialId: "TSBNZWPO",
+      credentialUrl: "https://www.mygreatlearning.com/certificate/TSBNZWPO?referrer_code=GLS9QYLMUGIIO",
+      category: "Development",
+      icon: "🟠",
+      skills: ["Calculator Project", "Digital Clock Project", "Client-Side Scripting", "To-Do List Application", "HTML & CSS Integration", "JavaScript Fundamentals", "Web Page Dynamic Behaviour", "Hands-On JavaScript Implementation", "Interactive Web Application Development"]
+    },
+    {
+      title: "NodeJS in Hindi",
+      issuer: "GreatLearning",
+      date: "July 2023",
+      credentialId: "RRIWMSFV",
+      credentialUrl: "https://www.mygreatlearning.com/certificate/RRIWMSFV?referrer_code=GLS9QYLMUGIIO",
+      category: "Backend",
+      icon: "🟡",
+      skills: ["Basics of NodeJS"]
+    },
+    {
+      title: "Web Developer",
+      issuer: "Skylie Infosys",
+      date: "June 2024",
+      credentialId: "",
+      credentialUrl: "/public/skyline.jpg",
+      category: "Internship",
+      icon: "🔵",
+      skills: ["HTML", "CSS", "JavaScript", "Bootstrap"]
+    },
+    {
+      title: "Python Development",
+      issuer: "Infotact Solution",
+      date: "June 2025",
+      credentialId: "5b03139ac90708d",
+      credentialUrl: "/public/infotact.jpg",
+      category: "Internship",
+      icon: "🔵",
+      skills: ["Basice Of Python", "File Organization", "Data Management", "Data Processing", "Automation", "File Handling"]
+    },
+    {
+      title: "Backend Developer",
+      issuer: "White Orange Software PVT. LTD.",
+      date: "March 2026",
+      credentialId: "",
+      credentialUrl: "/public/wos.png",
+      category: "Internship",
+      icon: "🔵",
+      skills: ["NodeJs", "ExpressJs", "Mongodb", "MySQL", "API", "Rest API", "Authentication", "Authorization", "Security"]
+    },
   ]
 };
