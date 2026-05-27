@@ -218,7 +218,7 @@ export const resumeData = {
       issuer: "Skylie Infosys",
       date: "June 2024",
       credentialId: "",
-      credentialUrl: "/public/skyline.jpg",
+      credentialUrl: "https://asset.cloudinary.com/djn7ivlo7/1c2499c1bcc67968b56ea1eb407c108chttps://res.cloudinary.com/djn7ivlo7/image/upload/v1779875941/flipkart/Internship-2024.jpg",
       category: "Internship",
       icon: "🔵",
       skills: ["HTML", "CSS", "JavaScript", "Bootstrap"]
@@ -238,7 +238,7 @@ export const resumeData = {
       issuer: "White Orange Software PVT. LTD.",
       date: "March 2026",
       credentialId: "",
-      credentialUrl: "/public/wos.png",
+      credentialUrl: "https://res.cloudinary.com/djn7ivlo7/image/upload/v1779875909/flipkart/Internship-2026.png",
       category: "Internship",
       icon: "🔵",
       skills: ["NodeJs", "ExpressJs", "Mongodb", "MySQL", "API", "Rest API", "Authentication", "Authorization", "Security"]
