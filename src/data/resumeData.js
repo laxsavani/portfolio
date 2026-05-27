@@ -218,7 +218,7 @@ export const resumeData = {
       issuer: "Skylie Infosys",
       date: "June 2024",
       credentialId: "",
-      credentialUrl: "https://asset.cloudinary.com/djn7ivlo7/1c2499c1bcc67968b56ea1eb407c108chttps://res.cloudinary.com/djn7ivlo7/image/upload/v1779875941/flipkart/Internship-2024.jpg",
+      credentialUrl: "https://res.cloudinary.com/djn7ivlo7/image/upload/v1779875909/flipkart/Internship-2024.png",
       category: "Internship",
       icon: "🔵",
       skills: ["HTML", "CSS", "JavaScript", "Bootstrap"]
