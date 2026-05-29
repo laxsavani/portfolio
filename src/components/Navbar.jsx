@@ -108,7 +108,7 @@ const Navbar = () => {
             </button>
 
             <a
-              href="/Resume.pdf"
+              href="/Lax_Savani_Resume.pdf"
               download
               className="border border-accent text-accent px-5 py-2 rounded font-sans text-sm tracking-wide transition-all duration-300 hover:bg-accent hover:text-white"
             >
@@ -178,7 +178,7 @@ const Navbar = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: (navLinks.length + 1) * 0.08 }}
-              href="/Resume.pdf"
+              href="/Lax_Savani_Resume.pdf"
               download
               onClick={() => setIsOpen(false)}
               className="border border-accent text-accent px-8 py-3 rounded font-sans text-lg tracking-wide transition-all duration-300 hover:bg-accent hover:text-white"

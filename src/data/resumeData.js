@@ -76,6 +76,14 @@ export const resumeData = {
   ],
   projects: [
     {
+      name: "Aura Booking – Beauty & Wellness Appointment Management Platform",
+      category: "Full Stack",
+      description: "RESTful Library Management System API developed using Node.js, Express.js, and Sequelize ORM with MySQL. Implemented CRUD operations and user authentication.",
+      tags: ["React.js", "Node.js", "Express.js", "Mongoose", "MongoDB"],
+      github: "https://github.com/laxsavani/Aura-Booking",
+      live: "https://aura-booking-nine.vercel.app/",
+    },
+    {
       name: "Library Management System API",
       category: "Backend",
       description: "RESTful Library Management System API developed using Node.js, Express.js, and Sequelize ORM with MySQL. Implemented CRUD operations and user authentication.",
