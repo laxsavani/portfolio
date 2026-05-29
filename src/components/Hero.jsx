@@ -102,7 +102,7 @@ const Hero = () => {
               </motion.button>
             </Link>
             <motion.a
-              href="/Resume.pdf"
+              href="/Lax_Savani_Resume.pdf"
               download
               whileHover={{ y: -3, boxShadow: '0 10px 30px -10px var(--accent)' }}
               whileTap={{ scale: 0.95 }}

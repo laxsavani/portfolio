@@ -21,7 +21,7 @@ export const resumeData = {
   },
   workExperience: [
     {
-      role: "Backend Development",
+      role: "Node.js Backend Developer",
       company: "White Orange Software",
       location: "Surat, Gujarat",
       duration: "Jan 2026 – Present",
@@ -31,10 +31,10 @@ export const resumeData = {
         "Built a Flipkart-like API implementing RESTful endpoints, CRUD operations, and user authentication.",
         "Optimizing server-side performance and managing database queries."
       ],
-      tags: ["Node.js", "Express.js", "Sequelize", "MongoDB", "MySQL"]
+      tags: ["Node.js", "Express.js", "Sequelize", "MongoDB", "MySQL", "Generative AI", "API Development", "Authentication", "Authorization"]
     },
     {
-      role: "Python Development",
+      role: "Python Developer",
       company: "Infotact Solutions",
       location: "Bengaluru, Karnataka",
       duration: "April 2025 - June 2025",
@@ -43,7 +43,7 @@ export const resumeData = {
         "Built and deployed a Flask To-Do web app with full CRUD functionality and SQLite integration.",
         "Managed deployments on Render and Heroku, and maintained version control with Git/GitHub."
       ],
-      tags: ["Python", "Flask", "SQLite", "BeautifulSoup", "Git"]
+      tags: ["Python", "Flask", "SQLite", "Automation"]
     },
     {
       role: "Web Developer",
@@ -55,7 +55,7 @@ export const resumeData = {
         "Enhanced UI interactivity with client-side validation and dynamic DOM manipulation, optimizing frontend performance.",
         "Conducted cross-browser testing and debugging to ensure consistent, reliable, and high-quality chat functionality."
       ],
-      tags: ["HTML", "CSS", "JavaScript", "DOM"]
+      tags: ["HTML", "CSS", "JavaScript"]
     }
   ],
   education: [

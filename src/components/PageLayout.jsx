@@ -141,7 +141,7 @@ const PageNavbar = () => {
               <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-accent" />
             </span>
             <a
-              href="/Resume.pdf"
+              href="/Lax_Savani_Resume.pdf"
               download
               className="border border-accent text-accent px-5 py-2 rounded font-sans text-sm tracking-wide transition-all hover:bg-accent hover:text-white"
             >
@@ -209,7 +209,7 @@ const PageNavbar = () => {
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: (NAV_ITEMS.length + 2) * 0.06 }}
-              href="/Resume.pdf"
+              href="/Lax_Savani_Resume.pdf"
               download
               onClick={() => setIsOpen(false)}
               className="border border-accent text-accent px-8 py-3 rounded font-sans text-lg tracking-wide hover:bg-accent hover:text-white transition-all"
