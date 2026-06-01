@@ -24,7 +24,7 @@ export const resumeData = {
       role: "Node.js Backend Developer",
       company: "White Orange Software",
       location: "Surat, Gujarat",
-      duration: "Jan 2026 – Present",
+      duration: "Jan 2026 – April 2026",
       responsibilities: [
         "Developing backend systems using Node.js, Express.js, and Sequelize ORM.",
         "Integrating with MongoDB and MySQL for efficient data management.",
